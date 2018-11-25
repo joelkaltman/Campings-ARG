@@ -1,5 +1,7 @@
 package com.campingsarg.bigbambu.campingsarg;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 public class Camping {
@@ -65,6 +67,10 @@ public class Camping {
 
     public void setLongitud(double longitud) {
         this.longitud = longitud;
+    }
+
+    public LatLng getLatLng(){
+        return new LatLng(latitud, longitud);
     }
 
     public String getTelefono() {

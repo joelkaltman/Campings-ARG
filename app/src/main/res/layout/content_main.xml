@@ -5,7 +5,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    tools:showIn="@layout/app_bar_main">
+    tools:context=".MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/lbl_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="25dp"
+            android:text="Campings ARG"
+            android:textAlignment="center"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lbl_buscar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="Buscar por..."
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/btn_buscar_por_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Nombre"
+                android:textSize="25dp"
+                android:layout_margin="5dp"
+                android:textAllCaps="false"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite"/>
+
+            <Button
+                android:id="@+id/btn_buscar_por_ciudad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:text="Ciudad"
+                android:textSize="25dp"
+                android:textAllCaps="false"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite" />
+
+            <Button
+                android:id="@+id/btn_buscar_por_filtros"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:text="Filtros"
+                android:textSize="25dp"
+                android:textAllCaps="false"
+                android:background="@color/colorPrimary"
+                android:textColor="@color/colorWhite"/>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btn_ver_mapa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="25dp"
+            android:layout_marginTop="50dp"
+            android:text="Ver mapa"
+            android:textSize="25dp"
+            android:textAllCaps="false"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/colorWhite"
+            android:onClick="verMapa"/>
+
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

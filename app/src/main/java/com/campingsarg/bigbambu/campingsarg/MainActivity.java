@@ -1,5 +1,6 @@
 package com.campingsarg.bigbambu.campingsarg;
 
+import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -14,7 +15,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
+import com.campingsarg.bigbambu.campingsarg.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -22,14 +25,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
-    DatabaseReference dbCampings;
-    ArrayList<Camping> campings;
+    public static DatabaseReference dbCampings;
+    public static ArrayList<Camping> campings;
+
+    Button btnVerMapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,17 +41,7 @@ public class MainActivity extends AppCompatActivity
         dbCampings = FirebaseDatabase.getInstance().getReference("campings");
         campings = new ArrayList<>();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        btnVerMapa = findViewById(R.id.btn_ver_mapa);
     }
 
     @Override
@@ -73,52 +65,15 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
     void addCamping(String name){
         Camping camp = new Camping();
 
         dbCampings.child("camping_3").setValue(camp);
     }
 
+    public void verMapa(View v){
+        Intent myIntent = new Intent(MainActivity.this, MapaActivity.class);
+        MainActivity.this.startActivity(myIntent);
+
+    }
 }
