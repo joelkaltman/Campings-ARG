@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity
     }
 
     void addCamping(String name){
-        Camping camp = new Camping(name);
+        Camping camp = new Camping();
 
         dbCampings.child("camping_3").setValue(camp);
     }
