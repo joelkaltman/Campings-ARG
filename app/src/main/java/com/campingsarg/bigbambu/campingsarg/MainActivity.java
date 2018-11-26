@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void verMapa(View v){
-        Intent myIntent = new Intent(MainActivity.this, MapaActivity.class);
+        Intent myIntent = new Intent(getBaseContext(), MapaActivity.class);
         MainActivity.this.startActivity(myIntent);
 
     }

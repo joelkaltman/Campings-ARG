@@ -7,4 +7,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_mapa">Map</string>
+    <string name="title_activity_perfil_camping">PerfilCampingActivity</string>
+    <string name="perfil_contacto">Datos de contacto</string>
+    <string name="perfil_caracteristicas">Caracteristicas de alojamiento</string>
+    <string name="perfil_servicios">Servicios del camping</string>
+    <string name="perfil_naturaleza">Naturaleza</string>
+    <string name="perfil_recreacion">Recreación</string>
+    <string name="perfil_vacio">(sin datos)</string>
 </resources>
