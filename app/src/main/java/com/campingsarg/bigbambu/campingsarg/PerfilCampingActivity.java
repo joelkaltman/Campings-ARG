@@ -105,7 +105,7 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         mMap.addMarker(new MarkerOptions()
                 .position(pos)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.tent_icon)));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 12));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
     }
 
 }

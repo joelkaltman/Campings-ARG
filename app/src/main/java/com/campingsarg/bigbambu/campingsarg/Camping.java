@@ -18,22 +18,12 @@ public class Camping {
     private String abierto;
     private int parcelas;
     private boolean mascotas;
-    private boolean banios;
-    private boolean duchas;
-    private boolean aguaCaliente;
-    private boolean parrilas;
-    private boolean fogones;
-    private boolean proveeduria;
-    private boolean quincho;
-    private boolean senial;
-    private boolean wifi;
-    private boolean vigilancia;
     private String emergencias;
-    private boolean arbolado;
-    private boolean rio;
-    private boolean playa;
+    private ArrayList<String> servicios;
+    private ArrayList<String> naturaleza;
     private ArrayList<String> actividades;
     private ArrayList<String> alojamientos;
+    private ArrayList<String> formasDePago;
 
     public Camping(){
     }
@@ -114,116 +104,12 @@ public class Camping {
         this.mascotas = mascotas;
     }
 
-    public boolean isBanios() {
-        return banios;
-    }
-
-    public void setBanios(boolean banios) {
-        this.banios = banios;
-    }
-
-    public boolean isDuchas() {
-        return duchas;
-    }
-
-    public void setDuchas(boolean duchas) {
-        this.duchas = duchas;
-    }
-
-    public boolean isAguaCaliente() {
-        return aguaCaliente;
-    }
-
-    public void setAguaCaliente(boolean aguaCaliente) {
-        this.aguaCaliente = aguaCaliente;
-    }
-
-    public boolean isParrilas() {
-        return parrilas;
-    }
-
-    public void setParrilas(boolean parrilas) {
-        this.parrilas = parrilas;
-    }
-
-    public boolean isFogones() {
-        return fogones;
-    }
-
-    public void setFogones(boolean fogones) {
-        this.fogones = fogones;
-    }
-
-    public boolean isProveeduria() {
-        return proveeduria;
-    }
-
-    public void setProveeduria(boolean proveeduria) {
-        this.proveeduria = proveeduria;
-    }
-
-    public boolean isQuincho() {
-        return quincho;
-    }
-
-    public void setQuincho(boolean quincho) {
-        this.quincho = quincho;
-    }
-
-    public boolean isSenial() {
-        return senial;
-    }
-
-    public void setSenial(boolean senial) {
-        this.senial = senial;
-    }
-
-    public boolean isWifi() {
-        return wifi;
-    }
-
-    public void setWifi(boolean wifi) {
-        this.wifi = wifi;
-    }
-
-    public boolean isVigilancia() {
-        return vigilancia;
-    }
-
-    public void setVigilancia(boolean vigilancia) {
-        this.vigilancia = vigilancia;
-    }
-
     public String getEmergencias() {
         return emergencias;
     }
 
     public void setEmergencias(String emergencias) {
         this.emergencias = emergencias;
-    }
-
-    public boolean isArbolado() {
-        return arbolado;
-    }
-
-    public void setArbolado(boolean arbolado) {
-        this.arbolado = arbolado;
-    }
-
-    public boolean isRio() {
-        return rio;
-    }
-
-    public void setRio(boolean rio) {
-        this.rio = rio;
-    }
-
-    public boolean isPlaya() {
-        return playa;
-    }
-
-    public void setPlaya(boolean playa) {
-        this.playa = playa;
     }
 
     public ArrayList<String> getActividades() {
@@ -272,5 +158,29 @@ public class Camping {
 
     public void setAlojamientos(ArrayList<String> alojamientos) {
         this.alojamientos = alojamientos;
+    }
+
+    public ArrayList<String> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(ArrayList<String> servicios) {
+        this.servicios = servicios;
+    }
+
+    public ArrayList<String> getNaturaleza() {
+        return naturaleza;
+    }
+
+    public void setNaturaleza(ArrayList<String> naturaleza) {
+        this.naturaleza = naturaleza;
+    }
+
+    public ArrayList<String> getFormasDePago() {
+        return formasDePago;
+    }
+
+    public void setFormasDePago(ArrayList<String> formasDePago) {
+        this.formasDePago = formasDePago;
     }
 }
