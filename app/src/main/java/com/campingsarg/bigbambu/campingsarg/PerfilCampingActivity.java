@@ -28,6 +28,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class PerfilCampingActivity extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
@@ -59,32 +61,40 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
     }
 
     private void cargarInformacion(){
-        TextView nombre = findViewById(R.id.lbl_perfil_nombre);
-        TextView ubicacion = findViewById(R.id.lbl_perfil_ubicacion);
+        TextView txtNombre = findViewById(R.id.lbl_perfil_nombre);
+        TextView txtUbicacion = findViewById(R.id.lbl_perfil_ubicacion);
 
-        TextView telefono = findViewById(R.id.lbl_perfil_telefono);
-        TextView direccion = findViewById(R.id.lbl_perfil_direccion);
-        TextView abierto = findViewById(R.id.lbl_perfil_abierto);
-        TextView tipo = findViewById(R.id.lbl_perfil_tipo);
+        TextView txtTelefono = findViewById(R.id.lbl_perfil_telefono);
+        TextView txtDireccion = findViewById(R.id.lbl_perfil_direccion);
+        TextView txtAbierto = findViewById(R.id.lbl_perfil_abierto);
+        TextView txtTipo = findViewById(R.id.lbl_perfil_tipo);
 
-        TextView tipos = findViewById(R.id.lbl_perfil_tipo);
-        TextView parcelas = findViewById(R.id.lbl_perfil_parcelas);
-        TextView mascotas = findViewById(R.id.lbl_perfil_mascotas);
+        TextView txtAlojamientos = findViewById(R.id.lbl_perfil_alojamientos);
+        TextView txtParcelas = findViewById(R.id.lbl_perfil_parcelas);
+        TextView txtMascotas = findViewById(R.id.lbl_perfil_mascotas);
 
-        nombre.setText(camping.getNombre());
-        ubicacion.setText(camping.getCiudad() + ", " + camping.getProvincia());
+        txtNombre.setText(camping.getNombre());
+        txtUbicacion.setText(camping.getCiudad() + ", " + camping.getProvincia());
 
-        telefono.setText(camping.getTelefono());
-        direccion.setText(camping.getDireccion());
-        abierto.setText(camping.getAbierto());
-        tipo.setText(camping.getTipo());
+        txtTelefono.setText(camping.getTelefono());
+        txtDireccion.setText(camping.getDireccion());
+        txtAbierto.setText(camping.getAbierto());
+        txtTipo.setText(camping.getTipo());
 
-        //tipos.setText();
-        parcelas.setText(String.valueOf(camping.getParcelas()));
+        ArrayList<String> alojamientos = camping.getAlojamientos();
+        String textoAloja = "";
+        for(int i = 0; i < alojamientos.size(); i++){
+            textoAloja += alojamientos.get(i);
+            if(i < alojamientos.size() - 1)
+                textoAloja += ", ";
+        }
+        txtAlojamientos.setText(textoAloja);
+
+        txtParcelas.setText(String.valueOf(camping.getParcelas()));
         if(camping.isMascotas()) {
-            mascotas.setText("Si");
+            txtMascotas.setText("Si");
         }else{
-            mascotas.setText("No");
+            txtMascotas.setText("No");
         }
     }
 

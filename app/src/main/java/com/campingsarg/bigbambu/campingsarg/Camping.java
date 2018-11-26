@@ -33,6 +33,7 @@ public class Camping {
     private boolean rio;
     private boolean playa;
     private ArrayList<String> actividades;
+    private ArrayList<String> alojamientos;
 
     public Camping(){
     }
@@ -263,5 +264,13 @@ public class Camping {
 
     public void setProvincia(String provincia) {
         this.provincia = provincia;
+    }
+
+    public ArrayList<String> getAlojamientos() {
+        return alojamientos;
+    }
+
+    public void setAlojamientos(ArrayList<String> alojamientos) {
+        this.alojamientos = alojamientos;
     }
 }
