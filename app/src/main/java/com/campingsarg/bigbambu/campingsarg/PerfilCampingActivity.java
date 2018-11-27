@@ -3,16 +3,26 @@ package com.campingsarg.bigbambu.campingsarg;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,10 +84,10 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         TextView txtParcelas = findViewById(R.id.lbl_perfil_parcelas);
         TextView txtMascotas = findViewById(R.id.lbl_perfil_mascotas);
 
-        TextView txtServicios = findViewById(R.id.lbl_perfil_servicios);
-        TextView txtNaturaleza = findViewById(R.id.lbl_perfil_naturaleza);
-        TextView txtRecreacion = findViewById(R.id.lbl_perfil_recreacion);
 
+        TableLayout layoutServicios  = (TableLayout)findViewById(R.id.table_perfil_servicios);
+        TableLayout layoutNaturaleza  = (TableLayout)findViewById(R.id.table_perfil_naturaleza);
+        TableLayout layoutRecreacion  = (TableLayout)findViewById(R.id.table_perfil_actividades);
 
         txtNombre.setText(camping.getNombre());
         txtUbicacion.setText(camping.getCiudad() + ", " + camping.getProvincia());
@@ -108,22 +118,12 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         }
 
         ArrayList<String> servicios = camping.getServicios();
-        if(servicios != null) {
-            String textoServicios = this.concatenarStrings(servicios);
-            txtServicios.setText(textoServicios);
-        }
-
         ArrayList<String> naturaleza = camping.getNaturaleza();
-        if(naturaleza != null) {
-            String textoNaturaleza = this.concatenarStrings(naturaleza);
-            txtNaturaleza.setText(textoNaturaleza);
-        }
-
         ArrayList<String> recreacion = camping.getActividades();
-        if(recreacion != null) {
-            String textoRecreacion = this.concatenarStrings(recreacion);
-            txtRecreacion.setText(textoRecreacion);
-        }
+
+        this.cargarTabla(servicios, layoutServicios, 2);
+        this.cargarTabla(naturaleza, layoutNaturaleza, 2);
+        this.cargarTabla(recreacion, layoutRecreacion, 2);
     }
 
     private String concatenarStrings(ArrayList<String> strings){
@@ -134,6 +134,40 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
                 texto += ", ";
         }
         return texto;
+    }
+
+    private void cargarTabla(ArrayList<String> lista, TableLayout tabla, int elem_por_fila){
+
+        // Si la lista es nula dejo el texto de perfil vacio y saco la imagen
+        if(lista == null){
+            View vi = LayoutInflater.from(this).inflate(R.layout.item_profile_list, null);
+            TextView textItem = (TextView)vi.findViewById(R.id.text_item);
+            ImageView imageItem = (ImageView)vi.findViewById(R.id.img_item);
+            textItem.setText(R.string.perfil_vacio);
+            ((ViewManager)imageItem.getParent()).removeView(imageItem);
+            tabla.addView(vi);
+            return;
+        }
+
+        // Sino cargo la tabla segun la cantidad de elementos por fila
+        ArrayList<View> viewsRow = new ArrayList<>();
+        for (int i=0; i < lista.size(); i++) {
+            View vi = LayoutInflater.from(this).inflate(R.layout.item_profile_list, null);
+            TextView textItem = (TextView)vi.findViewById(R.id.text_item);
+            ImageView imageItem = (ImageView)vi.findViewById(R.id.img_item);
+            textItem.setText(lista.get(i));
+            viewsRow.add(vi);
+
+            if(viewsRow.size() == elem_por_fila || (i == lista.size() - 1)) {
+                TableRow row = new TableRow(this);
+                row.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.FILL_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+                for(View view : viewsRow){
+                    row.addView(view);
+                }
+                viewsRow.clear();
+                tabla.addView(row, new TableLayout.LayoutParams(TableLayout.LayoutParams.FILL_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+            }
+        }
     }
 
     @Override

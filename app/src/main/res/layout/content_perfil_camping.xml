@@ -47,7 +47,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"/>
+                    android:background="@android:color/darker_gray"
+                    android:layout_margin="5dp"/>
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -168,7 +169,8 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"/>
+                    android:background="@android:color/darker_gray"
+                    android:layout_margin="5dp"/>
 
                 <TableLayout
                     android:layout_width="match_parent"
@@ -251,14 +253,14 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"/>
+                    android:background="@android:color/darker_gray"
+                    android:layout_margin="5dp"/>
 
-                <TextView
-                    android:id="@+id/lbl_perfil_servicios"
-                    android:layout_width="match_parent"
+                <TableLayout
+                    android:id="@+id/table_perfil_servicios"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_vacio"
-                    android:layout_margin="5dp" />
+                    android:orientation="vertical"/>
 
             </LinearLayout>
 
@@ -278,14 +280,15 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"/>
+                    android:background="@android:color/darker_gray"
+                    android:layout_margin="5dp"/>
 
-                <TextView
-                    android:id="@+id/lbl_perfil_naturaleza"
-                    android:layout_width="match_parent"
+                <TableLayout
+                    android:id="@+id/table_perfil_naturaleza"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_vacio"
-                    android:layout_margin="5dp" />
+                    android:orientation="vertical"/>
+
 
             </LinearLayout>
 
@@ -298,21 +301,21 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_recreacion"
+                    android:text="@string/perfil_actividades"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"/>
+                    android:background="@android:color/darker_gray"
+                    android:layout_margin="5dp"/>
 
-                <TextView
-                    android:id="@+id/lbl_perfil_recreacion"
-                    android:layout_width="match_parent"
+                <TableLayout
+                    android:id="@+id/table_perfil_actividades"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_vacio"
-                    android:layout_margin="5dp" />
+                    android:orientation="vertical"/>
 
             </LinearLayout>
 

@@ -12,6 +12,6 @@
     <string name="perfil_caracteristicas">Caracteristicas de alojamiento</string>
     <string name="perfil_servicios">Servicios del camping</string>
     <string name="perfil_naturaleza">Naturaleza</string>
-    <string name="perfil_recreacion">Recreación</string>
+    <string name="perfil_actividades">Actividades</string>
     <string name="perfil_vacio">(sin datos)</string>
 </resources>
