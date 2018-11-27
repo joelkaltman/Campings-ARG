@@ -98,6 +98,25 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="Web:"
+                            android:layout_margin="5dp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/lbl_perfil_web"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/perfil_vacio"
+                            android:layout_margin="5dp" />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:text="Abierto:"
                             android:layout_margin="5dp"
                             android:textStyle="bold"/>
@@ -234,6 +253,13 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"/>
 
+                <TextView
+                    android:id="@+id/lbl_perfil_servicios"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/perfil_vacio"
+                    android:layout_margin="5dp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -254,6 +280,13 @@
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"/>
 
+                <TextView
+                    android:id="@+id/lbl_perfil_naturaleza"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/perfil_vacio"
+                    android:layout_margin="5dp" />
+
             </LinearLayout>
 
             <LinearLayout
@@ -273,6 +306,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="@android:color/darker_gray"/>
+
+                <TextView
+                    android:id="@+id/lbl_perfil_recreacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/perfil_vacio"
+                    android:layout_margin="5dp" />
 
             </LinearLayout>
 

@@ -11,13 +11,13 @@ public class Camping {
     private String provincia;
     private String web;
     private String googleMyBusines;
-    private double latitud;
-    private double longitud;
+    private Double latitud;
+    private Double longitud;
     private String telefono;
     private String tipo;
     private String abierto;
-    private int parcelas;
-    private boolean mascotas;
+    private Integer parcelas;
+    private Boolean mascotas;
     private String emergencias;
     private ArrayList<String> servicios;
     private ArrayList<String> naturaleza;
@@ -26,6 +26,13 @@ public class Camping {
     private ArrayList<String> formasDePago;
 
     public Camping(){
+        direccion = "(sin datos)";
+        web = "(sin datos)";
+        googleMyBusines = "(sin datos)";
+        telefono = "(sin datos)";
+        tipo = "(sin datos)";
+        abierto = "(sin datos)";
+        emergencias = "(sin datos)";
     }
 
     public String getWeb() {
@@ -88,19 +95,19 @@ public class Camping {
         this.abierto = abierto;
     }
 
-    public int getParcelas() {
+    public Integer getParcelas() {
         return parcelas;
     }
 
-    public void setParcelas(int parcelas) {
+    public void setParcelas(Integer parcelas) {
         this.parcelas = parcelas;
     }
 
-    public boolean isMascotas() {
+    public Boolean isMascotas() {
         return mascotas;
     }
 
-    public void setMascotas(boolean mascotas) {
+    public void setMascotas(Boolean mascotas) {
         this.mascotas = mascotas;
     }
 

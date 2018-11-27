@@ -66,6 +66,7 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
 
         TextView txtTelefono = findViewById(R.id.lbl_perfil_telefono);
         TextView txtDireccion = findViewById(R.id.lbl_perfil_direccion);
+        TextView txtWeb = findViewById(R.id.lbl_perfil_web);
         TextView txtAbierto = findViewById(R.id.lbl_perfil_abierto);
         TextView txtTipo = findViewById(R.id.lbl_perfil_tipo);
 
@@ -73,29 +74,66 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         TextView txtParcelas = findViewById(R.id.lbl_perfil_parcelas);
         TextView txtMascotas = findViewById(R.id.lbl_perfil_mascotas);
 
+        TextView txtServicios = findViewById(R.id.lbl_perfil_servicios);
+        TextView txtNaturaleza = findViewById(R.id.lbl_perfil_naturaleza);
+        TextView txtRecreacion = findViewById(R.id.lbl_perfil_recreacion);
+
+
         txtNombre.setText(camping.getNombre());
         txtUbicacion.setText(camping.getCiudad() + ", " + camping.getProvincia());
 
         txtTelefono.setText(camping.getTelefono());
         txtDireccion.setText(camping.getDireccion());
+        txtWeb.setText(camping.getWeb());
         txtAbierto.setText(camping.getAbierto());
         txtTipo.setText(camping.getTipo());
 
         ArrayList<String> alojamientos = camping.getAlojamientos();
-        String textoAloja = "";
-        for(int i = 0; i < alojamientos.size(); i++){
-            textoAloja += alojamientos.get(i);
-            if(i < alojamientos.size() - 1)
-                textoAloja += ", ";
+        if(alojamientos != null) {
+            String textoAlojamientos = this.concatenarStrings(alojamientos);
+            txtAlojamientos.setText(textoAlojamientos);
         }
-        txtAlojamientos.setText(textoAloja);
 
-        txtParcelas.setText(String.valueOf(camping.getParcelas()));
-        if(camping.isMascotas()) {
-            txtMascotas.setText("Si");
-        }else{
-            txtMascotas.setText("No");
+        Integer parcelas = camping.getParcelas();
+        if(parcelas != null)
+            txtParcelas.setText(String.valueOf(parcelas));
+
+        Boolean mascotas = camping.isMascotas();
+        if(mascotas != null) {
+            if (mascotas) {
+                txtMascotas.setText("Si");
+            } else {
+                txtMascotas.setText("No");
+            }
         }
+
+        ArrayList<String> servicios = camping.getServicios();
+        if(servicios != null) {
+            String textoServicios = this.concatenarStrings(servicios);
+            txtServicios.setText(textoServicios);
+        }
+
+        ArrayList<String> naturaleza = camping.getNaturaleza();
+        if(naturaleza != null) {
+            String textoNaturaleza = this.concatenarStrings(naturaleza);
+            txtNaturaleza.setText(textoNaturaleza);
+        }
+
+        ArrayList<String> recreacion = camping.getActividades();
+        if(recreacion != null) {
+            String textoRecreacion = this.concatenarStrings(recreacion);
+            txtRecreacion.setText(textoRecreacion);
+        }
+    }
+
+    private String concatenarStrings(ArrayList<String> strings){
+        String texto = "";
+        for (int i = 0; i < strings.size(); i++) {
+            texto += strings.get(i);
+            if (i < strings.size() - 1)
+                texto += ", ";
+        }
+        return texto;
     }
 
     @Override
