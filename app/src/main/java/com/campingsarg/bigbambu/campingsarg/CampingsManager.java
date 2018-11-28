@@ -21,13 +21,20 @@ public class CampingsManager {
             return campingsTexto;
         }
 
-        String lowCase = limpiarAcentos(texto.toLowerCase());
+        String textoLimpio = limpiarAcentos(texto.toLowerCase());
+        String[] palabras = textoLimpio.split("\\s+");
         for(int i = 0; i < campings.size(); i++) {
             Camping actual = campings.get(i);
             String lowcaseNombre = limpiarAcentos(actual.getNombre().toLowerCase());
             String lowcaseUbicacion = limpiarAcentos(actual.getUbicacion().toLowerCase());
 
-            if(lowcaseNombre.contains(lowCase) || lowcaseUbicacion.contains(lowCase)) {
+            boolean todasLasPalabras = true;
+            for(int j = 0; j < palabras.length; j++) {
+                if (!lowcaseNombre.contains(palabras[j]) && !lowcaseUbicacion.contains(palabras[j])) {
+                    todasLasPalabras = false;
+                }
+            }
+            if(todasLasPalabras) {
                 campingsTexto.add(actual);
             }
         }
