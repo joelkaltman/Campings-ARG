@@ -63,9 +63,9 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map_perfil);
         mapFragment.getMapAsync(this);
 
-        int index = getIntent().getExtras().getInt("index");
+        int campingId = getIntent().getExtras().getInt("id");
 
-        camping = MainActivity.campings.get(index);
+        camping = CampingsManager.encontrarPorId(campingId);
 
         cargarInformacion();
     }
@@ -77,37 +77,29 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         TextView txtTelefono = findViewById(R.id.lbl_perfil_telefono);
         TextView txtDireccion = findViewById(R.id.lbl_perfil_direccion);
         TextView txtWeb = findViewById(R.id.lbl_perfil_web);
+
         TextView txtAbierto = findViewById(R.id.lbl_perfil_abierto);
         TextView txtTipo = findViewById(R.id.lbl_perfil_tipo);
-
-        TextView txtAlojamientos = findViewById(R.id.lbl_perfil_alojamientos);
         TextView txtParcelas = findViewById(R.id.lbl_perfil_parcelas);
         TextView txtMascotas = findViewById(R.id.lbl_perfil_mascotas);
 
-
+        TableLayout layoutAlojamientos  = (TableLayout)findViewById(R.id.table_perfil_alojamientos);
         TableLayout layoutServicios  = (TableLayout)findViewById(R.id.table_perfil_servicios);
         TableLayout layoutNaturaleza  = (TableLayout)findViewById(R.id.table_perfil_naturaleza);
         TableLayout layoutRecreacion  = (TableLayout)findViewById(R.id.table_perfil_actividades);
 
         txtNombre.setText(camping.getNombre());
-        txtUbicacion.setText(camping.getCiudad() + ", " + camping.getProvincia());
+        txtUbicacion.setText(camping.getUbicacion());
 
         txtTelefono.setText(camping.getTelefono());
         txtDireccion.setText(camping.getDireccion());
         txtWeb.setText(camping.getWeb());
+
         txtAbierto.setText(camping.getAbierto());
         txtTipo.setText(camping.getTipo());
-
-        ArrayList<String> alojamientos = camping.getAlojamientos();
-        if(alojamientos != null) {
-            String textoAlojamientos = this.concatenarStrings(alojamientos);
-            txtAlojamientos.setText(textoAlojamientos);
-        }
-
         Integer parcelas = camping.getParcelas();
         if(parcelas != null)
             txtParcelas.setText(String.valueOf(parcelas));
-
         Boolean mascotas = camping.isMascotas();
         if(mascotas != null) {
             if (mascotas) {
@@ -117,27 +109,18 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
             }
         }
 
+        ArrayList<String> alojamientos = camping.getAlojamientos();
         ArrayList<String> servicios = camping.getServicios();
         ArrayList<String> naturaleza = camping.getNaturaleza();
         ArrayList<String> recreacion = camping.getActividades();
 
+        this.cargarTabla(alojamientos, layoutAlojamientos, 2);
         this.cargarTabla(servicios, layoutServicios, 2);
         this.cargarTabla(naturaleza, layoutNaturaleza, 2);
         this.cargarTabla(recreacion, layoutRecreacion, 2);
     }
 
-    private String concatenarStrings(ArrayList<String> strings){
-        String texto = "";
-        for (int i = 0; i < strings.size(); i++) {
-            texto += strings.get(i);
-            if (i < strings.size() - 1)
-                texto += ", ";
-        }
-        return texto;
-    }
-
     private void cargarTabla(ArrayList<String> lista, TableLayout tabla, int elem_por_fila){
-
         // Si la lista es nula dejo el texto de perfil vacio y saco la imagen
         if(lista == null){
             View vi = LayoutInflater.from(this).inflate(R.layout.item_profile_list, null);
@@ -148,7 +131,6 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
             tabla.addView(vi);
             return;
         }
-
         // Sino cargo la tabla segun la cantidad de elementos por fila
         ArrayList<View> viewsRow = new ArrayList<>();
         for (int i=0; i < lista.size(); i++) {

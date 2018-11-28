@@ -5,6 +5,7 @@ import com.google.android.gms.maps.model.LatLng;
 import java.util.ArrayList;
 
 public class Camping {
+    private int id;
     private String nombre;
     private String direccion;
     private String ciudad;
@@ -24,16 +25,6 @@ public class Camping {
     private ArrayList<String> actividades;
     private ArrayList<String> alojamientos;
     private ArrayList<String> formasDePago;
-
-    public Camping(){
-        direccion = "(sin datos)";
-        web = "(sin datos)";
-        googleMyBusines = "(sin datos)";
-        telefono = "(sin datos)";
-        tipo = "(sin datos)";
-        abierto = "(sin datos)";
-        emergencias = "(sin datos)";
-    }
 
     public String getWeb() {
         return web;
@@ -65,10 +56,6 @@ public class Camping {
 
     public void setLongitud(double longitud) {
         this.longitud = longitud;
-    }
-
-    public LatLng getLatLng(){
-        return new LatLng(latitud, longitud);
     }
 
     public String getTelefono() {
@@ -190,4 +177,39 @@ public class Camping {
     public void setFormasDePago(ArrayList<String> formasDePago) {
         this.formasDePago = formasDePago;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    public Camping(){
+        direccion = "(sin datos)";
+        web = "(sin datos)";
+        googleMyBusines = "(sin datos)";
+        telefono = "(sin datos)";
+        tipo = "(sin datos)";
+        abierto = "(sin datos)";
+        emergencias = "(sin datos)";
+    }
+
+
+    public LatLng getLatLng(){
+        return new LatLng(latitud, longitud);
+    }
+
+    public String getUbicacion(){
+        String ubicacion = "";
+        if(this.ciudad != null){
+            ubicacion += this.ciudad;
+            ubicacion += ", ";
+        }
+        if(this.provincia != null){
+            ubicacion += this.provincia;
+        }
+        return ubicacion;
+    }
+
 }

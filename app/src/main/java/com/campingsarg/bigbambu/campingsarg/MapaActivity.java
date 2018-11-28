@@ -44,8 +44,8 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         LatLng pos = new LatLng(0,0);
-        for(int i = 0; i < MainActivity.campings.size(); i++) {
-            Camping camping = MainActivity.campings.get(i);
+        for(int i = 0; i < CampingsManager.campings.size(); i++) {
+            Camping camping = CampingsManager.campings.get(i);
             pos = camping.getLatLng();
             Marker newMarker = mMap.addMarker(new MarkerOptions()
                     .position(pos)
@@ -53,10 +53,10 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
                     .snippet(camping.getDireccion())
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.tent_icon)));
             this.markers.add(newMarker);
-            this.mapMarkers.put(newMarker.getId(), i);
+            this.mapMarkers.put(newMarker.getId(), camping.getId());
         }
 
-        if(MainActivity.campings.size() > 0) {
+        if(CampingsManager.campings.size() > 0) {
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markers.get(0).getPosition(), 12));
         }
 
@@ -67,9 +67,9 @@ public class MapaActivity extends FragmentActivity implements OnMapReadyCallback
             public void onInfoWindowClick(Marker marker) {
                 Intent intent = new Intent(getBaseContext(), PerfilCampingActivity.class);
 
-                Integer index = mapMarkers.get(marker.getId());
-                if(index != null) {
-                    intent.putExtra("index", index);
+                Integer campingId = mapMarkers.get(marker.getId());
+                if(campingId != null) {
+                    intent.putExtra("id", campingId);
                     startActivity(intent);
                 }else{
                     Toast.makeText(MapaActivity.this, "Camping no encontrado", Toast.LENGTH_SHORT).show();
