@@ -38,7 +38,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_contacto"
+                    android:text="@string/contacto"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
                 <View
@@ -62,7 +62,7 @@
                             android:id="@+id/lbl_perfil_telefono"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
 
@@ -79,7 +79,7 @@
                             android:id="@+id/lbl_perfil_direccion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
                     <TableRow
@@ -96,7 +96,7 @@
                             android:id="@+id/lbl_perfil_web"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
                 </TableLayout>
@@ -110,7 +110,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_caracteristicas"
+                    android:text="@string/caracteristicas"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
                 <View
@@ -136,7 +136,7 @@
                             android:id="@+id/lbl_perfil_abierto"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
                     <TableRow
@@ -153,7 +153,7 @@
                             android:id="@+id/lbl_perfil_tipo"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
                     <TableRow
@@ -171,7 +171,7 @@
                             android:id="@+id/lbl_perfil_parcelas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
                     <TableRow
@@ -189,7 +189,7 @@
                             android:id="@+id/lbl_perfil_mascotas"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/perfil_vacio"
+                            android:text="@string/vacio"
                             android:layout_margin="5dp" />
                     </TableRow>
                 </TableLayout>
@@ -205,7 +205,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_alojamientos"
+                    android:text="@string/alojamientos"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -232,7 +232,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_servicios"
+                    android:text="@string/servicios"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -259,7 +259,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_naturaleza"
+                    android:text="@string/naturaleza"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 
@@ -287,7 +287,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/perfil_actividades"
+                    android:text="@string/actividades"
                     android:textSize="20sp"
                     android:textStyle="bold"/>
 

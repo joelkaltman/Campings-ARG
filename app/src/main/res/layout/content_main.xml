@@ -27,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorPrimary"
+            android:focusableInTouchMode="true">
 
             <EditText
                 android:id="@+id/txt_buscador"
@@ -72,7 +73,8 @@
                 android:layout_weight="1"
                 android:padding="5dp"
                 app:srcCompat="@android:drawable/ic_dialog_alert"
-                android:background="@color/colorPrimary" />
+                android:background="@color/colorPrimary"
+                android:onClick="filtrar"/>
         </LinearLayout>
 
     </LinearLayout>

@@ -8,11 +8,12 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_mapa">Map</string>
     <string name="title_activity_perfil_camping">PerfilCampingActivity</string>
-    <string name="perfil_contacto">Contacto</string>
-    <string name="perfil_caracteristicas">Caracteristicas</string>
-    <string name="perfil_alojamientos">Alojamientos</string>
-    <string name="perfil_servicios">Servicios</string>
-    <string name="perfil_naturaleza">Naturaleza</string>
-    <string name="perfil_actividades">Actividades</string>
-    <string name="perfil_vacio">(sin datos)</string>
+    <string name="ubicacion">Ubicación</string>
+    <string name="contacto">Contacto</string>
+    <string name="caracteristicas">Caracteristicas</string>
+    <string name="alojamientos">Alojamientos</string>
+    <string name="servicios">Servicios</string>
+    <string name="naturaleza">Naturaleza</string>
+    <string name="actividades">Actividades</string>
+    <string name="vacio">(sin datos)</string>
 </resources>

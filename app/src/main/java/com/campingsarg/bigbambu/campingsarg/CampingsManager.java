@@ -55,4 +55,57 @@ public class CampingsManager {
         }
         return limpio;
     }
+
+    public enum TipoLista{
+        ACTIVIDADES,
+        SERVICIOS,
+        NATURALEZA,
+        ALOJAMIENTOS,
+        CIUDADES,
+        PROVINCIAS,
+        TIPOS
+    };
+
+    public static ArrayList<String> obtenerTodos(TipoLista tipo){
+        ArrayList<String> actividades = new ArrayList<>();
+
+        for(int i = 0; i < campings.size(); i++) {
+            ArrayList<String> listaActual = new ArrayList<>();
+            switch (tipo) {
+                case CIUDADES:
+                    listaActual.add(campings.get(i).getCiudad());
+                    break;
+                case PROVINCIAS:
+                    listaActual.add(campings.get(i).getProvincia());
+                    break;
+                case TIPOS:
+                    listaActual.add(campings.get(i).getTipo());
+                    break;
+                case ACTIVIDADES:
+                    listaActual = campings.get(i).getActividades();
+                    break;
+                case SERVICIOS:
+                    listaActual = campings.get(i).getServicios();
+                    break;
+                case NATURALEZA:
+                    listaActual = campings.get(i).getNaturaleza();
+                    break;
+                case ALOJAMIENTOS:
+                    listaActual = campings.get(i).getAlojamientos();
+                    break;
+            }
+
+            if(listaActual != null) {
+                for (int j = 0; j < listaActual.size(); j++) {
+                    String actual = listaActual.get(j);
+                    if (!actividades.contains(actual)) {
+                        actividades.add(actual);
+                    }
+                }
+            }
+        }
+        return actividades;
+    }
+
+
 }

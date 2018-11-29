@@ -124,9 +124,7 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
         // Si la lista es nula dejo el texto de perfil vacio y saco la imagen
         if(lista == null){
             View vi = LayoutInflater.from(this).inflate(R.layout.item_profile_list, null);
-            TextView textItem = (TextView)vi.findViewById(R.id.text_item);
             ImageView imageItem = (ImageView)vi.findViewById(R.id.img_item);
-            textItem.setText(R.string.perfil_vacio);
             ((ViewManager)imageItem.getParent()).removeView(imageItem);
             tabla.addView(vi);
             return;

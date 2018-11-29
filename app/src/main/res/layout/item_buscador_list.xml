@@ -14,7 +14,7 @@
         android:id="@+id/text_item_buscador_nombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/perfil_vacio"
+        android:text="@string/vacio"
         android:textSize="20sp"
         android:textStyle="bold"/>
 
@@ -22,6 +22,6 @@
         android:id="@+id/text_item_buscador_ubicacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/perfil_vacio"
+        android:text="@string/vacio"
         android:textStyle="italic"/>
 </LinearLayout>

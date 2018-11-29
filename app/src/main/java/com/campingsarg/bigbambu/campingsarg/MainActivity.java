@@ -111,4 +111,9 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.startActivity(myIntent);
 
     }
+
+    public void filtrar(View v){
+        Intent myIntent = new Intent(getBaseContext(), FiltrarActivity.class);
+        MainActivity.this.startActivity(myIntent);
+    }
 }
