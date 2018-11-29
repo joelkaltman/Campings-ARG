@@ -41,6 +41,92 @@ public class CampingsManager {
         return campingsTexto;
     }
 
+    public static ArrayList<Camping> encontrarPorFiltros(String ciudad,
+                                                         String provincia,
+                                                         Integer distancia,
+                                                         boolean mascotasSi,
+                                                         boolean mascotasNo,
+                                                         ArrayList<String> alojamientos,
+                                                         ArrayList<String> servicios,
+                                                         ArrayList<String> actividades,
+                                                         ArrayList<String> naturaleza){
+        ArrayList<Camping> campingsFiltro = new ArrayList<>(campings);
+
+        for(int i = 0; i < campingsFiltro.size(); i++) {
+            Camping actual = campingsFiltro.get(i);
+            boolean borrar = false;
+
+            if(ciudad != null && !actual.getCiudad().equals(ciudad)){
+                borrar = true;
+            }
+            if(provincia != null && !actual.getProvincia().equals(provincia)){
+                borrar = true;
+            }
+            if(actual.isMascotas() == null) {
+                if (mascotasSi || mascotasNo) {
+                    borrar = true;
+                }
+            } else {
+                if ((mascotasSi && !actual.isMascotas()) || (mascotasNo && actual.isMascotas())){
+                    borrar = true;
+                }
+            }
+
+            ArrayList<String> alojamientosActual = actual.getAlojamientos();
+            if(alojamientosActual == null && alojamientos.size() > 0){
+                borrar = true;
+            } else {
+                for (int j = 0; j < alojamientos.size(); j++) {
+                    if (!alojamientosActual.contains(alojamientos.get(j))) {
+                        borrar = true;
+                        break;
+                    }
+                }
+            }
+            ArrayList<String> serviciosActual = actual.getServicios();
+            if(serviciosActual == null && servicios.size() > 0){
+                borrar = true;
+            } else {
+                for (int j = 0; j < servicios.size(); j++) {
+                    if (!serviciosActual.contains(servicios.get(j))) {
+                        borrar = true;
+                        break;
+                    }
+                }
+            }
+            ArrayList<String> actividadesActual = actual.getActividades();
+            if(actividadesActual == null && actividades.size() > 0){
+                borrar = true;
+            } else {
+                for (int j = 0; j < actividades.size(); j++) {
+                    if (!actividadesActual.contains(actividades.get(j))) {
+                        borrar = true;
+                        break;
+                    }
+                }
+            }
+            ArrayList<String> naturalezaActual = actual.getNaturaleza();
+            if(naturalezaActual == null && naturaleza.size() > 0){
+                borrar = true;
+            } else {
+                for (int j = 0; j < naturaleza.size(); j++) {
+                    if (!naturalezaActual.contains(naturaleza.get(j))) {
+                        borrar = true;
+                        break;
+                    }
+                }
+            }
+
+            if(borrar){
+                campingsFiltro.remove(actual);
+                i--;
+            }
+        }
+
+        return  campingsFiltro;
+    }
+
+
     static String limpiarAcentos(String cadena) {
         String limpio =null;
         if (cadena !=null) {

@@ -117,7 +117,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/caracteristicas"
+                    android:text="Mascotas"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -127,49 +127,41 @@
                     android:layout_margin="5dp"
                     android:background="@android:color/darker_gray" />
 
-                <TableLayout
+                <RadioGroup
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:gravity="center_vertical">
+                    android:checkedButton="1"
+                    android:orientation="horizontal"
+                    android:layout_margin="5dp">
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <RadioButton
+                        android:id="@+id/rdb_filtrar_mascotas_nosabe"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Me da igual"
+                        android:textColor="@color/colorDarkGrey"
+                        android:checked="true"/>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:text="Tipo:"
-                            android:textStyle="bold" />
+                    <RadioButton
+                        android:id="@+id/rdb_filtrar_mascotas_si"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Permitidas"
+                        android:textColor="@color/colorDarkGrey"/>
 
-                        <Spinner
-                            android:id="@+id/spn_filtrar_tipo"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
-                    </TableRow>
+                    <RadioButton
+                        android:id="@+id/rdb_filtrar_mascotas_no"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prohibidas"
+                        android:textColor="@color/colorDarkGrey" />
 
-                    <TableRow
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical">
+                </RadioGroup>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:text="Mascotas:"
-                            android:textStyle="bold" />
 
-                        <CheckBox
-                            android:id="@+id/chk_filtrar_mascotas"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="right" />
-
-                    </TableRow>
-                </TableLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -289,12 +281,13 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/btn_filtrar_buscar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/colorPrimary"
-                    android:text="Filtrar"
-                    android:textColor="@color/colorWhite" />
+                    android:text="Buscar"
+                    android:textColor="@color/colorWhite"
+                    android:onClick="buscar"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

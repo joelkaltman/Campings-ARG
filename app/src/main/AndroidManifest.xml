@@ -19,12 +19,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:screenOrientation="portrait">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" >
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -46,13 +47,19 @@
         <activity
             android:name=".MapaActivity"
             android:label="@string/title_activity_mapa" />
+
         <activity
             android:name=".PerfilCampingActivity"
             android:label="@string/title_activity_perfil_camping"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
             android:name=".FiltrarActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:label="Buscar por filtros"/>
+
+        <activity
+            android:name=".ListaFiltrados"
+            android:label="Resultados"/>
     </application>
 
 </manifest>
