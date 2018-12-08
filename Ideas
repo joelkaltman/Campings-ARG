@@ -1,0 +1,5 @@
+En la BDD
+1. Que los campings puedan tener mas de una ciudad
+2. Agregar lista de modos de pago ["efectivo", "tarjeta", ...]
+3. Agregar el campo descripcion
+4. Que telefonos sea una coleccion, no un unico string
