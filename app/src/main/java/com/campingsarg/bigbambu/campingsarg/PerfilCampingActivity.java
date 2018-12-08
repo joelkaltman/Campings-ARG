@@ -3,6 +3,7 @@ package com.campingsarg.bigbambu.campingsarg;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
@@ -135,7 +136,9 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
             View vi = LayoutInflater.from(this).inflate(R.layout.item_profile_list, null);
             TextView textItem = (TextView)vi.findViewById(R.id.text_item);
             ImageView imageItem = (ImageView)vi.findViewById(R.id.img_item);
-            textItem.setText(lista.get(i));
+            String texto = lista.get(i);
+            textItem.setText(texto);
+            imageItem.setImageDrawable(this.iconoDeItem(texto));
             viewsRow.add(vi);
 
             if(viewsRow.size() == elem_por_fila || (i == lista.size() - 1)) {
@@ -158,6 +161,54 @@ public class PerfilCampingActivity extends AppCompatActivity implements OnMapRea
                 .position(pos)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.tent_icon)));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 14));
+    }
+
+    private Drawable iconoDeItem(String nombre){
+        Drawable draw = getResources().getDrawable(R.drawable.ic_default);
+        switch (nombre){
+            case "Autocamping": draw = getResources().getDrawable(R.drawable.ic_autocamping); break;
+            case "Motorhomes": draw = getResources().getDrawable(R.drawable.ic_motorhomes); break;
+            case "Casas rodantes": draw = getResources().getDrawable(R.drawable.ic_casasrodantes); break;
+            case "Cabañas": draw = getResources().getDrawable(R.drawable.ic_cabanias); break;
+            case "Bungalows": draw = getResources().getDrawable(R.drawable.ic_bungalows); break;
+            case "Contingentes": draw = getResources().getDrawable(R.drawable.ic_contingentes); break;
+            case "Dormitorios": draw = getResources().getDrawable(R.drawable.ic_dormitorios); break;
+            case "Baños": draw = getResources().getDrawable(R.drawable.ic_banios); break;
+            case "Duchas": draw = getResources().getDrawable(R.drawable.ic_duchas); break;
+            case "Agua caliente": draw = getResources().getDrawable(R.drawable.ic_aguacaliente); break;
+            case "Electricidad": draw = getResources().getDrawable(R.drawable.ic_electricidad); break;
+            case "Parrillas": draw = getResources().getDrawable(R.drawable.ic_parrillas); break;
+            case "Fogones": draw = getResources().getDrawable(R.drawable.ic_fogones); break;
+            case "Proveeduria": draw = getResources().getDrawable(R.drawable.ic_proveeduria); break;
+            case "Quincho": draw = getResources().getDrawable(R.drawable.ic_quincho); break;
+            case "Señal": draw = getResources().getDrawable(R.drawable.ic_senial); break;
+            case "Wifi": draw = getResources().getDrawable(R.drawable.ic_wifi); break;
+            case "Vigilancia": draw = getResources().getDrawable(R.drawable.ic_vigilancia); break;
+            case "Restaurante/Bar": draw = getResources().getDrawable(R.drawable.ic_restaurante); break;
+            case "Teléfono público": draw = getResources().getDrawable(R.drawable.ic_telefonopublico); break;
+            case "Rio": draw = getResources().getDrawable(R.drawable.ic_rio); break;
+            case "Arbolado": draw = getResources().getDrawable(R.drawable.ic_arbolado); break;
+            case "Playa": draw = getResources().getDrawable(R.drawable.ic_playa); break;
+            case "Muelle": draw = getResources().getDrawable(R.drawable.ic_muelle); break;
+            case "Lago": draw = getResources().getDrawable(R.drawable.ic_rio); break;
+            case "Balneario": draw = getResources().getDrawable(R.drawable.ic_balneario); break;
+            case "Acuáticas": draw = getResources().getDrawable(R.drawable.ic_acuaticas); break;
+            case "Juegos de Salón": draw = getResources().getDrawable(R.drawable.ic_juegossalon); break;
+            case "Beach Voley": draw = getResources().getDrawable(R.drawable.ic_voley); break;
+            case "Pesca": draw = getResources().getDrawable(R.drawable.ic_pesca); break;
+            case "Nauticas": draw = getResources().getDrawable(R.drawable.ic_nauticas); break;
+            case "Fútbol": draw = getResources().getDrawable(R.drawable.ic_futbol); break;
+            case "Basquet": draw = getResources().getDrawable(R.drawable.ic_basquet); break;
+            case "Tenis": draw = getResources().getDrawable(R.drawable.ic_tenis); break;
+            case "Hockey": draw = getResources().getDrawable(R.drawable.ic_hockey); break;
+            case "Handball": draw = getResources().getDrawable(R.drawable.ic_handball); break;
+            case "GYM": draw = getResources().getDrawable(R.drawable.ic_gym); break;
+            case "Voley": draw = getResources().getDrawable(R.drawable.ic_voley); break;
+            case "Pileta": draw = getResources().getDrawable(R.drawable.ic_pileta); break;
+            case "Bochas": draw = getResources().getDrawable(R.drawable.ic_bochas); break;
+            case "Kayak": draw = getResources().getDrawable(R.drawable.ic_kayak); break;
+        }
+        return draw;
     }
 
 }
